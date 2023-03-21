@@ -10,6 +10,7 @@ class UserSpeciality extends Model
 {
     use HasFactory;
     protected $fillable=['speciality_id','user_id','date','time'];
+    protected $isApi = false;
 
     public function speciality()
     {
@@ -21,6 +22,10 @@ class UserSpeciality extends Model
     }
     public function getTimeAttribute($time)
     {
+        if($this->isApi == true)
+        {
+            return $time;
+        }
         $formatedTime = Carbon::createFromFormat('H:i:s', $time)->format('h:i A');
         return $formatedTime;
     }

@@ -17,10 +17,9 @@ use App\Http\Controllers\client\Dashboard\AppointmentController;
 */
 
 //Auth Routes
-Route::group(['middleware' => 'guest'], function () {
     Route::GET('/', [LoginController::class, 'index'])->name('login.index');
     Route::GET('/register', [RegisterController::class, 'index'])->name('register.index');
-});
+
 
 Route::POST('/', [LoginController::class, 'login'])->name('login');
 Route::POST('/logout', [LoginController::class, 'logout'])->name('logout');
