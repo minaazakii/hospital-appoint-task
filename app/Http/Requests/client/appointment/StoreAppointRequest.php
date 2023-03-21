@@ -25,7 +25,7 @@ class StoreAppointRequest extends FormRequest
     {
         return [
             'speciality_id'=>'required',
-            'date'=>'required|date|before:'.date('Y-m-d'),
+            'date'=>'required|date|after:'.date('Y-m-d'),
             'time'=>'required'
 
         ];
